@@ -1,5 +1,5 @@
-
-class Water extends LivingCreature{
+var LivingCreature= require("./class.LivingCreature");
+module.exports =class Water extends LivingCreature{
     constructor(x, y, index) {
         super(x,y,index);
         this.directions = [];

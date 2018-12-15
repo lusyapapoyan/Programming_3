@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var app = express();
+var io = require("socket.io")(server);
 
 // Define the port to run on
 app.set('port', process.env.PORT || 3000);
@@ -19,4 +20,4 @@ var myObject = new LivingCreature();
 function main() {
      console.log(myObject.chooseCell());
 }
-main();
+main(); 
