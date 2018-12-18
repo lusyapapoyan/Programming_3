@@ -14,10 +14,5 @@ var server = app.listen(app.get('port'), function() {
   console.log('Magic happens on port ' + port);
 });
 
-var LivingCreature = require("./modules/class.LivingCreature");
-var myObject = new LivingCreature();
-
-function main() {
-     console.log(myObject.chooseCell());
-}
-main(); 
+var matrix = require("./modules/matrix.js");
+console.log(matrix);
