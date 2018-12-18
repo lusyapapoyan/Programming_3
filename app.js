@@ -1,24 +1,52 @@
 var express = require('express');
-var path = require('path');
 var app = express();
-var io = require("socket.io")(server);
 
-// Define the port to run on
-app.set('port', process.env.PORT || 3000);
+var server = require('http').Server(app);
 
-app.use(express.static(path.join(__dirname, 'modules')));
+var io = require('socket.io')(server);
 
-// Listen for requests
-var server = app.listen(app.get('port'), function () {
-  var port = server.address().port;
-  console.log('Magic happens on port ' + port);
+app.use(express.static("./public"));
+
+app.get('/', function (req, res) {
+   res.redirect('index.html');
 });
+
+server.listen(3000);
 
 var matrix = require("./modules/matrix.js");
 console.log(matrix);
 
-
 io.on("connection", function (socket) {
-  socket.emit("matrix", messages[i]);
+  socket.emit("matrix", matrix);
 
 });
+
+var frameRate = 5;
+var time = 1000 / frameRate;
+setInterval(draw, time);
+
+function draw(){
+  for (var y = 0; y < matrix.length; y++) {
+    for (var x = 0; x < matrix[y].length; x++) {
+        if (matrix[y][x].index == 1) {
+            matrix[y][x].mul(matrix);
+        }
+        // else if (matrix[y][x].index == 2) {
+        //     matrix[y][x].eat();
+  
+        // }
+        // else if (matrix[y][x].index == 3) {
+        //     matrix[y][x].eat();
+  
+        // }
+        // else if (matrix[y][x].index == 4) {
+        //     matrix[y][x].adden();
+        // }
+        // else if (matrix[y][x].index == 5) {
+        //     matrix[y][x].shoot();
+        // }
+  
+    }
+  }
+
+}
