@@ -49,6 +49,7 @@ module.exports =class GrassEater extends LivingCreature {
             }
 
         }
+        else (this.acted== false);
     }
     eat(matrix) {
         var newCell = randomInRange(this.chooseCell(1, matrix));

@@ -55,8 +55,7 @@ io.on("connection", function (socket) {
 var frameRate = 1;
 var time = 1000 / frameRate;
 
-socket.on(){
 
-}
+
 
 

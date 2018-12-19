@@ -69,6 +69,7 @@ module.exports =class Gishatich extends LivingCreature {
             }
 
         }
+        else (this.acted== false);
 
     }
     eat(matrix) {

@@ -4,6 +4,7 @@ var GrassEater = require("./class.grasseater");
 var Owner = require("./class.owner");
 var Gishatich = require("./class.gishatich");
 var Water = require("./class.water");
+var Weather = require("./weather");
 
 var matrix = [];
 var n = 80;
