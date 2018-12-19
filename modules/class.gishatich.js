@@ -46,8 +46,8 @@ module.exports =class Gishatich extends LivingCreature {
 
     }
 
-    move() {
-        var newCell = random(this.chooseCell(0));
+    move(matrix) {
+        var newCell = randomInRange(this.chooseCell(0, matrix));
         if (this.acted == false) {
             if (newCell) {
                 var newX = newCell[0];
@@ -69,8 +69,8 @@ module.exports =class Gishatich extends LivingCreature {
         }
 
     }
-    eat() {
-        var newCell = random(this.chooseCell(2));
+    eat(matrix) {
+        var newCell = randomInRange(this.chooseCell(2, matrix));
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
@@ -93,8 +93,8 @@ module.exports =class Gishatich extends LivingCreature {
 
     }
 
-    mul() {
-        var newCell = random(this.chooseCell(0));
+    mul(matrix) {
+        var newCell = randomInRange(this.chooseCell(0, matrix));
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
@@ -108,5 +108,9 @@ module.exports =class Gishatich extends LivingCreature {
     die() {
         matrix[this.y][this.x] = 0;
     }
+
+} 
+function randomInRange(num){
+    return Math.floor(Math.random()* num);
 
 }

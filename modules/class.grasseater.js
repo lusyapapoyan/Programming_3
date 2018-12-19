@@ -21,13 +21,13 @@ module.exports =class GrassEater extends LivingCreature {
         ];
     }
 
-    chooseCell(num) {
+    chooseCell(num, matrix) {
         this.getNewCoordinates();
-        return super.chooseCell(num);
+        return super.chooseCell(num, matrix);
 
     }
     move() {
-        var newCell = random(this.chooseCell(0));
+        var newCell = randomInRange(this.chooseCell(0, matrix));
         if (this.acted == false) {
             if (newCell) {
                 var newX = newCell[0];
@@ -51,7 +51,7 @@ module.exports =class GrassEater extends LivingCreature {
         }
     }
     eat() {
-        var newCell = random(this.chooseCell(1));
+        var newCell = randomInRange(this.chooseCell(1));
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
@@ -72,8 +72,8 @@ module.exports =class GrassEater extends LivingCreature {
             this.move();
         }
     }
-    mul() {
-        var newCell = random(this.chooseCell(0));
+    mul(matrix) {
+        var newCell = randomInRange(this.chooseCell(0, matrix));
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
@@ -89,5 +89,9 @@ module.exports =class GrassEater extends LivingCreature {
     }
 
 
+
+}
+function randomInRange(num){
+    return Math.floor(Math.random() * num);
 
 }

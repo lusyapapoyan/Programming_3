@@ -31,12 +31,12 @@ function draw(){
         if (matrix[y][x].index == 1) {
             matrix[y][x].mul(matrix);
         }
-        // else if (matrix[y][x].index == 2) {
-        //     matrix[y][x].eat();
+        else if (matrix[y][x].index == 2) {
+            matrix[y][x].eat(matrix);
   
-        // }
+        }
         // else if (matrix[y][x].index == 3) {
-        //     matrix[y][x].eat();
+        //     matrix[y][x].eat(matrix);
   
         // }
         // else if (matrix[y][x].index == 4) {
