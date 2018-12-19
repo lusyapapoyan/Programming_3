@@ -40,21 +40,21 @@ module.exports =class Owner extends LivingCreature {
 
         ];
     }
-    chooseCell(num) {
+    chooseCell(num, matrix) {
         this.getNewCoordinates();
-        return super.chooseCell(num);
+        return super.chooseCell(num, matrix);
     }
 
-    shoot() {
-        var pred = this.chooseCell(3);
+    shoot(matrix) {
+        var pred = this.chooseCell(3, matrix);
         for (var i in pred) {
             this.keracKarmirQanak++;
             var x = pred[i][0];
             var y = pred[i][1];
-            matrix[y][x].die();
+            matrix[y][x].die(matrix);
 
             if (this.keracKarmirQanak >= 10) {
-                this.die();
+                this.die(matrix);
 
             }
 
@@ -62,8 +62,12 @@ module.exports =class Owner extends LivingCreature {
 
 
     }
-    die() {
+    die(matrix) {
         matrix[this.y][this.x] = 0;
     }
+
+}
+function randomInRange(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
 
 }

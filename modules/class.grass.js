@@ -17,7 +17,7 @@ module.exports = class Grass extends LivingCreature {
     }
 
 }
-function randomInRange(num){
-    return Math.floor(Math.random() * num);
+function randomInRange(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
 
 }

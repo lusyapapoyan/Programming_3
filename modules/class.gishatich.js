@@ -40,9 +40,9 @@ module.exports =class Gishatich extends LivingCreature {
         ];
     }
 
-    chooseCell(num) {
+    chooseCell(num, matrix) {
         this.getNewCoordinates();
-        return super.chooseCell(num);
+        return super.chooseCell(num, matrix);
 
     }
 
@@ -52,16 +52,18 @@ module.exports =class Gishatich extends LivingCreature {
             if (newCell) {
                 var newX = newCell[0];
                 var newY = newCell[1];
+
                 matrix[newY][newX] = matrix[this.y][this.x];
                 matrix[this.y][this.x] = 0;
 
                 this.x = newX;
                 this.y = newY;
+
                 this.acted = true;
                 this.energy--;
 
                 if (this.energy <= 0) {
-                    this.die();
+                    this.die(matrix);
                 }
 
             }
@@ -72,22 +74,25 @@ module.exports =class Gishatich extends LivingCreature {
     eat(matrix) {
         var newCell = randomInRange(this.chooseCell(2, matrix));
         if (newCell) {
+
             var newX = newCell[0];
             var newY = newCell[1];
+
             matrix[newY][newX] = matrix[this.y][this.x];
             matrix[this.y][this.x] = 0;
 
             this.x = newX;
             this.y = newY;
+
             this.energy++;
             if (this.energy >= 15) {
-                this.mul();
+                this.mul(matrix);
             }
 
         }
 
         else {
-            this.move();
+            this.move(matrix);      
         }
 
 
@@ -100,17 +105,17 @@ module.exports =class Gishatich extends LivingCreature {
             var newY = newCell[1];
 
             matrix[newY][newX] = new Gishatich(newX, newY, 3);
-            this.energy = 0;
+            this.energy = 8;
         }
 
     }
 
-    die() {
+    die(matrix) {
         matrix[this.y][this.x] = 0;
     }
 
 } 
-function randomInRange(num){
-    return Math.floor(Math.random()* num);
+function randomInRange(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
 
 }
