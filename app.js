@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
 server.listen(3000);
 
 var matrix = require("./modules/matrix.js");
-//console.log(matrix);
+var st = require("./modules/statistic.js");
 
 io.on("connection", function (socket) {
   socket.emit("matrix", matrix);

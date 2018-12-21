@@ -43,7 +43,6 @@ function randomFromArr(arr){
     return Math.floor(Math.random()* arr.length);
 
 }
-
 function randomInRange(num){
     return Math.floor(Math.random() * num);
 }

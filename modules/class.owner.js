@@ -51,7 +51,6 @@ module.exports =class Owner extends LivingCreature {
             this.keracKarmirQanak++;
             var x = pred[i][0];
             var y = pred[i][1];
-            matrix[y][x].die(matrix);
 
             if (this.keracKarmirQanak >= 10) {
                 this.die(matrix);
