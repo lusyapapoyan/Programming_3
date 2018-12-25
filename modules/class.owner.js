@@ -1,7 +1,7 @@
-var LivingCreature= require("./class.LivingCreature");
-module.exports =class Owner extends LivingCreature {
+var LivingCreature = require("./class.LivingCreature");
+module.exports = class Owner extends LivingCreature {
     constructor(x, y, index) {
-        super(x,y,index);
+        super(x, y, index);
         this.directions = [];
         this.acted = false;
         this.keracKarmirQanak = 0;
@@ -62,15 +62,15 @@ module.exports =class Owner extends LivingCreature {
 
     }
     die(matrix) {
-        // this.dieCounter();
-        matrix[this.y][this.x] == 0;
+        this.dieCounter();
+        matrix[this.y][this.x] = 0;
     }
-    // dieCounter(){
-    //     Owner.dead++;
-    //     Owner.current--;
-    // }
+    dieCounter() {
+        Owner.dead++;
+        Owner.current--;
+    }
 }
-function randomInRange(arr){
+function randomInRange(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 
 }

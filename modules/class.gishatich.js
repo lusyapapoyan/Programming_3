@@ -1,7 +1,7 @@
-var LivingCreature= require("./class.LivingCreature");
-module.exports =class Gishatich extends LivingCreature {
+var LivingCreature = require("./class.LivingCreature");
+module.exports = class Gishatich extends LivingCreature {
     constructor(x, y, index) {
-        super(x,y,index);
+        super(x, y, index);
         this.energy = 8;
         this.directions = [];
         this.acted = false;
@@ -69,7 +69,7 @@ module.exports =class Gishatich extends LivingCreature {
             }
 
         }
-        else (this.acted== false);
+        else (this.acted == false);
 
     }
     eat(matrix) {
@@ -93,7 +93,7 @@ module.exports =class Gishatich extends LivingCreature {
         }
 
         else {
-            this.move(matrix);      
+            this.move(matrix);
         }
 
 
@@ -104,8 +104,8 @@ module.exports =class Gishatich extends LivingCreature {
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
-               // Gishatich.born++;
-                // Gishatich.current++;
+            Gishatich.born++;
+            Gishatich.current++;
             matrix[newY][newX] = new Gishatich(newX, newY, 3);
             this.energy = 8;
         }
@@ -113,17 +113,17 @@ module.exports =class Gishatich extends LivingCreature {
     }
 
     die(matrix) {
-        // this.dieCounter();
+        this.dieCounter();
         matrix[this.y][this.x] = 0;
     }
-    //  dieCounter(){
-    //     Gishatich.dead++;
-    //     Gishatich.current--;
-    // }
-    
+    dieCounter() {
+        Gishatich.dead++;
+        Gishatich.current--;
+    }
 
-} 
-function randomInRange(arr){
+
+}
+function randomInRange(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 
 }

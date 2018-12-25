@@ -1,23 +1,27 @@
 var matrix = [];
 var side = 10;
 var socket;
+var inf;
 
 function setup() {
+    frameRate(0);
+    background('#acacac');
+
     socket = io();
     socket.on("matrix", function (mtx) {
         matrix = mtx;
-        createCanvas(1400, 720);
+        createCanvas(1700, 720);
         redraw();
+
         socket.on("redraw", function (mtx) {
             matrix = mtx;
             redraw();
         });
-    // socket.on("stats", function(){
-    //     inf = stats;
-    // })    
+
+        socket.on("stats", function (stats) {
+            inf = stats;
+        });
     });
-    frameRate(0);
-    background('#acacac');
     noLoop();
 }
 
@@ -53,9 +57,33 @@ function draw() {
     }
     textSize(32);
     fill(0, 0, 0);
-    text('Statistics', 1000, 50);
-    text("Born", 850, 100 );
-    text("Dead", 1060, 100);
-    text("Current", 1250,100);
-    
+    text('Statistics', 1200, 50);
+    text("Born", 1100, 110);
+    text("Dead", 1300, 110);
+    text("Current", 1500, 110);
+
+    var yText = 0;
+    for (var i in inf) {
+        var xText = 0;
+        if (i == "Grass") {
+            fill("green");
+        }
+        else if (i == "GrassEater") {
+            fill("yellow");
+        }
+        else if (i == "Gishatich") {
+            fill("red");
+        }
+        else if (i == "Owner") {
+            fill("#000066");
+        }
+        textSize(28);
+        text(i, 850, 250 + yText);
+        for (var j in inf[i]) {
+            text(inf[i][j], 1100 + xText, 250 + yText);
+            xText += 200;
+        }
+        yText += 100;
+
+    }
 }
