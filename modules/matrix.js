@@ -6,17 +6,17 @@ var Gishatich = require("./class.gishatich");
 var Water = require("./class.water");
 var Weather = require("./weather");
 
-Grass.born =0;
-Grass.dead=0;
-Grass.current= 0;
+Grass.born = 0;
+Grass.dead = 0;
+Grass.current = 0;
 
-GrassEater.born =0;
-GrassEater.dead =0;
-GrassEater.current =0;
+GrassEater.born = 0;
+GrassEater.dead = 0;
+GrassEater.current = 0;
 
-Gishatich.born =0;
-Gishatich.dead =0;
-Gishatich.current =0;
+Gishatich.born = 0;
+Gishatich.dead = 0;
+Gishatich.current = 0;
 
 Owner.born = 0;
 Owner.dead = 0;
@@ -62,10 +62,10 @@ for (var y = 0; y < matrix.length; y++) {
 
 module.exports = matrix;
 
-function randomFromArr(arr){
-    return Math.floor(Math.random()* arr.length);
+function randomFromArr(arr) {
+    return Math.floor(Math.random() * arr.length);
 
 }
-function randomInRange(num){
+function randomInRange(num) {
     return Math.floor(Math.random() * num);
 }

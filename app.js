@@ -75,7 +75,7 @@ io.on("connection", function (socket) {
         var MyJSON = JSON.stringify(inf);
         fs.writeFileSync("./statistics.json", MyJSON);
         socket.emit("stats", inf);
-    }, 5000);
+    }, 1000);
 });
 
 var inf = {

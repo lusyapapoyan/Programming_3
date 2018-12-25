@@ -58,9 +58,9 @@ function draw() {
     textSize(32);
     fill(0, 0, 0);
     text('Statistics', 1200, 50);
-    text("Born", 1100, 110);
-    text("Dead", 1300, 110);
-    text("Current", 1500, 110);
+    text("Born", 1100, 140);
+    text("Dead", 1280, 140);
+    text("Current", 1480, 140);
 
     var yText = 0;
     for (var i in inf) {
@@ -83,7 +83,7 @@ function draw() {
             text(inf[i][j], 1100 + xText, 250 + yText);
             xText += 200;
         }
-        yText += 100;
+        yText += 140;
 
     }
 }

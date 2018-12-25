@@ -51,6 +51,8 @@ module.exports = class Owner extends LivingCreature {
             this.keracKarmirQanak++;
             var x = pred[i][0];
             var y = pred[i][1];
+            Owner.born++;
+            // Owner.current++;
 
             if (this.keracKarmirQanak >= 10) {
                 this.die(matrix);
@@ -67,7 +69,7 @@ module.exports = class Owner extends LivingCreature {
     }
     dieCounter() {
         Owner.dead++;
-        Owner.current--;
+        // Owner.current--;
     }
 }
 function randomInRange(arr) {
