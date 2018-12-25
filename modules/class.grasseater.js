@@ -78,7 +78,8 @@ module.exports =class GrassEater extends LivingCreature {
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
-
+            // GrassEater.born++;
+            // GrassEater.current++;
             matrix[newY][newX] = new GrassEater(newX, newY, 2);
             this.energy = 0;
         }
@@ -86,8 +87,13 @@ module.exports =class GrassEater extends LivingCreature {
     }
 
     die(matrix) {
+        // this.dieCounter();
         matrix[this.y][this.x] = 0;
     }
+    // dieCounter(){
+    // GrassEater.dead++;
+    // GrassEater.current--;
+    // }
 
 
 

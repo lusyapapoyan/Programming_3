@@ -12,6 +12,9 @@ function setup() {
             matrix = mtx;
             redraw();
         });
+    // socket.on("stats", function(){
+    //     inf = stats;
+    // })    
     });
     frameRate(0);
     background('#acacac');
@@ -50,8 +53,9 @@ function draw() {
     }
     textSize(32);
     fill(0, 0, 0);
-    text('Ստատիստիկա', 1000, 50);
-    // text();
-    // text();
-    // text();
+    text('Statistics', 1000, 50);
+    text("Born", 850, 100 );
+    text("Dead", 1060, 100);
+    text("Current", 1250,100);
+    
 }

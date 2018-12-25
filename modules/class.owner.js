@@ -62,9 +62,13 @@ module.exports =class Owner extends LivingCreature {
 
     }
     die(matrix) {
-        matrix[this.y][this.x] = 0;
+        // this.dieCounter();
+        matrix[this.y][this.x] == 0;
     }
-
+    // dieCounter(){
+    //     Owner.dead++;
+    //     Owner.current--;
+    // }
 }
 function randomInRange(arr){
     return arr[Math.floor(Math.random() * arr.length)];

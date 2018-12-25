@@ -104,7 +104,8 @@ module.exports =class Gishatich extends LivingCreature {
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
-
+               // Gishatich.born++;
+                // Gishatich.current++;
             matrix[newY][newX] = new Gishatich(newX, newY, 3);
             this.energy = 8;
         }
@@ -112,8 +113,14 @@ module.exports =class Gishatich extends LivingCreature {
     }
 
     die(matrix) {
+        // this.dieCounter();
         matrix[this.y][this.x] = 0;
     }
+    //  dieCounter(){
+    //     Gishatich.dead++;
+    //     Gishatich.current--;
+    // }
+    
 
 } 
 function randomInRange(arr){
