@@ -33,11 +33,11 @@ function draw() {
             if (matrix[y][x].index == 1) {
                 fill("green");
                 rect(x * side, y * side, side, side);
-                if (takt >=10 && takt < 20){
+                if (takt >= 10 && takt < 20) {
                     fill("white");
                     rect(x * side, y * side, side, side);
                 }
-                else if (takt >= 20 ){
+                else if (takt >= 20) {
                     fill("green");
                     rect(x * side, y * side, side, side);
                     takt = 0;
@@ -62,6 +62,13 @@ function draw() {
             else if (matrix[y][x].index == 5) {
                 fill("#000066");
                 rect(x * side, y * side, side, side);
+
+                if (takt >= 10 && takt < 20) {
+
+                }
+                else if(takt >= 20){
+
+                }
             }
         }
     }
@@ -71,7 +78,7 @@ function draw() {
     text("Born", 1100, 140);
     text("Dead", 1280, 140);
     text("Current", 1480, 140);
-    
+
     var yText = 0;
     for (var i in inf) {
         var xText = 0;
@@ -94,8 +101,8 @@ function draw() {
             xText += 200;
         }
         yText += 140;
-        
+
     }
-    
-    takt ++;
+
+    takt++;
 }

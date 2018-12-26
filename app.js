@@ -20,10 +20,13 @@ var GrassEater = require("./modules/class.grasseater");
 var Owner = require("./modules/class.owner");
 var Gishatich = require("./modules/class.gishatich");
 
+var takt =0;
+
 io.on("connection", function (socket) {
     socket.emit("matrix", matrix);
 
     setInterval(function () {
+        takt++;
         for (var y = 0; y < matrix.length; y++) {
             for (var x = 0; x < matrix[y].length; x++) {
                 if (matrix[y][x].index == 1) {
@@ -46,6 +49,7 @@ io.on("connection", function (socket) {
         }
         socket.emit("redraw", matrix);
     }, time);
+                                             
 
     setInterval(function () {
         inf = {
