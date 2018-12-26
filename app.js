@@ -15,22 +15,31 @@ app.get('/', function (req, res) {
 server.listen(3000);
 
 var matrix = require("./modules/matrix.js");
-var Grass= require("./modules/class.grass");
+var Grass = require("./modules/class.grass");
 var GrassEater = require("./modules/class.grasseater");
 var Owner = require("./modules/class.owner");
 var Gishatich = require("./modules/class.gishatich");
 
-var takt =0;
+var takt = 0;
 
 io.on("connection", function (socket) {
     socket.emit("matrix", matrix);
 
+    socket.on("takt", function (takter) {
+        takt = takter;
+    });
+
     setInterval(function () {
-        takt++;
         for (var y = 0; y < matrix.length; y++) {
             for (var x = 0; x < matrix[y].length; x++) {
                 if (matrix[y][x].index == 1) {
-                    matrix[y][x].mul(matrix);
+                    if (takt < 10) {
+                        matrix[y][x].mul(matrix);
+                    }
+                    else if (takt == 20) {
+                        takt = 0;
+
+                    }
                 }
                 else if (matrix[y][x].index == 2) {
                     matrix[y][x].eat(matrix);
@@ -48,8 +57,9 @@ io.on("connection", function (socket) {
             }
         }
         socket.emit("redraw", matrix);
+        takt++;
     }, time);
-                                             
+
 
     setInterval(function () {
         inf = {
