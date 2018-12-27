@@ -18,9 +18,9 @@ Gishatich.born = 0;
 Gishatich.dead = 0;
 Gishatich.current = 0;
 
-Owner.born = 0;
+Owner.born= 0;
 Owner.dead = 0;
-Owner.current = 0;
+Owner.current= 0;
 
 var matrix = [];
 var n = 80;

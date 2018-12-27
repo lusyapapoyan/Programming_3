@@ -25,8 +25,8 @@ var takt = 0;
 io.on("connection", function (socket) {
     socket.emit("matrix", matrix);
 
-    socket.on("takt", function (takter) {
-        takt = takter;
+    socket.on("takt", function (taktt) {
+        takt = taktt;
     });
 
     setInterval(function () {

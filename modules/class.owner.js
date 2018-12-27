@@ -45,11 +45,12 @@ module.exports = class Owner extends LivingCreature {
     }
 
     shoot(matrix) {
-        var pred = this.chooseCell(3, matrix);
+        var pred = randomInRange(this.chooseCell(3, matrix));
         for (var i in pred) {
             this.keracKarmirQanak++;
             var x = pred[i][0];
             var y = pred[i][1];
+            
             if (this.keracKarmirQanak >= 10) {
                 this.die(matrix);
 

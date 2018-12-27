@@ -58,8 +58,8 @@ module.exports = class Gishatich extends LivingCreature {
 
                 this.x = newX;
                 this.y = newY;
-
-                this.acted = true;
+                
+                this.acted == true;
                 this.energy--;
                 if (this.energy <= 0) {
                     this.die(matrix);
@@ -84,9 +84,9 @@ module.exports = class Gishatich extends LivingCreature {
 
             this.x = newX;
             this.y = newY;
-
+     
             this.energy++;
-            if (this.energy >= 15) {
+            if (this.energy >= 10) {
                 this.mul(matrix);
             }
 
@@ -108,6 +108,7 @@ module.exports = class Gishatich extends LivingCreature {
             this.energy = 8;
             Gishatich.born++;
             Gishatich.current++;
+            
         }
 
     }
@@ -115,6 +116,7 @@ module.exports = class Gishatich extends LivingCreature {
     die(matrix) {
         this.dieCounter();
         matrix[this.y][this.x] = 0;
+        
 
     }
     dieCounter() {
