@@ -40,7 +40,6 @@ module.exports = class GrassEater extends LivingCreature {
                 this.acted == true;
                 this.energy--;
 
-
                 if (this.energy <= 0) {
                     this.die(matrix);
                 }
@@ -49,13 +48,14 @@ module.exports = class GrassEater extends LivingCreature {
             }
 
         }
-        else (this.acted == false);
+        else { this.acted == false };
     }
     eat(matrix) {
         var newCell = randomInRange(this.chooseCell(1, matrix));
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
+            matrix[newY][newX].die();
             matrix[newY][newX] = matrix[this.y][this.x];
             matrix[this.y][this.x] = 0;
 
@@ -67,7 +67,6 @@ module.exports = class GrassEater extends LivingCreature {
                 this.mul(matrix);
             }
 
-
         }
         else {
             this.move(matrix);
@@ -78,14 +77,13 @@ module.exports = class GrassEater extends LivingCreature {
         if (newCell) {
             var newX = newCell[0];
             var newY = newCell[1];
+            matrix[newY][newX] = new GrassEater(newX, newY, 2);
+            this.energy = 10;
             GrassEater.born++;
             GrassEater.current++;
-            matrix[newY][newX] = new GrassEater(newX, newY, 2);
-            this.energy = 0;
         }
 
     }
-
     die(matrix) {
         this.dieCounter();
         matrix[this.y][this.x] = 0;
@@ -94,8 +92,6 @@ module.exports = class GrassEater extends LivingCreature {
         GrassEater.dead++;
         GrassEater.current--;
     }
-
-
 
 }
 function randomInRange(arr) {

@@ -33,12 +33,11 @@ io.on("connection", function (socket) {
         for (var y = 0; y < matrix.length; y++) {
             for (var x = 0; x < matrix[y].length; x++) {
                 if (matrix[y][x].index == 1) {
-                    if (takt < 10) {
+                    if (takt <= 10) {
                         matrix[y][x].mul(matrix);
                     }
                     else if (takt == 20) {
                         takt = 0;
-
                     }
                 }
                 else if (matrix[y][x].index == 2) {
@@ -48,7 +47,12 @@ io.on("connection", function (socket) {
                     matrix[y][x].eat(matrix);
                 }
                 else if (matrix[y][x].index == 4) {
-                    matrix[y][x].adden(matrix);
+                    if (takt <= 10) {
+                        matrix[y][x].adden(matrix);
+                    }
+                    else if (takt == 20) {
+                        takt = 0;
+                    }
                 }
                 else if (matrix[y][x].index == 5) {
                     matrix[y][x].shoot(matrix);

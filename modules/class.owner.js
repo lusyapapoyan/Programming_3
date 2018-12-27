@@ -3,7 +3,6 @@ module.exports = class Owner extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
         this.directions = [];
-        this.acted = false;
         this.keracKarmirQanak = 0;
     }
 

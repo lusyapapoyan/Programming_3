@@ -54,7 +54,7 @@ for (var y = 0; y < matrix.length; y++) {
         }
         else if (matrix[y][x] == 5) {
             matrix[y][x] = new Owner(x, y, 5);
-            Owner.born++;
+            Owner.born++
             Owner.current++;
         }
     }

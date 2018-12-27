@@ -36,7 +36,7 @@ function draw() {
                 if (takt >= 10 && takt < 20) {
                     fill("white");
                     rect(x * side, y * side, side, side);
-                    socket.emit("send takt", takt);
+                    // socket.emit("send takt", takt);
                 }
                 else if (takt >= 20) {
                     fill("green");
@@ -59,18 +59,10 @@ function draw() {
             else if (matrix[y][x].index == 4) {
                 fill("#99CCFF");
                 rect(x * side, y * side, side, side);
-
             }
             else if (matrix[y][x].index == 5) {
                 fill("#000066");
                 rect(x * side, y * side, side, side);
-
-                if (takt >= 10 && takt < 20) {
-
-                }
-                else if(takt >= 20){
-
-                }
             }
         }
     }

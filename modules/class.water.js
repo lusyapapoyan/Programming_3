@@ -3,7 +3,6 @@ module.exports =class Water extends LivingCreature{
     constructor(x, y, index) {
         super(x,y,index);
         this.directions = [];
-        this.acted = false;
     }
 
     getNewCoordinates() {
