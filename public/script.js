@@ -36,7 +36,6 @@ function draw() {
                 if (takt >= 10 && takt < 20) {
                     fill("white");
                     rect(x * side, y * side, side, side);
-                    // socket.emit("send takt", takt);
                 }
                 else if (takt >= 20) {
                     fill("green");

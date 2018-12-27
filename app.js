@@ -56,14 +56,12 @@ io.on("connection", function (socket) {
                 }
                 else if (matrix[y][x].index == 5) {
                     matrix[y][x].shoot(matrix);
-
                 }
             }
         }
         socket.emit("redraw", matrix);
         takt++;
     }, time);
-
 
     setInterval(function () {
         inf = {
@@ -88,7 +86,6 @@ io.on("connection", function (socket) {
                 "current": Owner.current
             }
         }
-
         var MyJSON = JSON.stringify(inf);
         fs.writeFileSync("./statistics.json", MyJSON);
         socket.emit("stats", inf);
@@ -117,7 +114,6 @@ var inf = {
         "current": 0
     }
 }
-
 var frameRate = 1;
 var time = 1000 / frameRate;
 
